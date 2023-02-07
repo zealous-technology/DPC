@@ -1,4 +1,6 @@
 
+using DPC.Web.Services;
+
 namespace DPC.Web
 {
     public class Program
@@ -10,6 +12,7 @@ namespace DPC.Web
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddScoped<IGreetingService, GreetingService>();
 
             var app = builder.Build();
 
