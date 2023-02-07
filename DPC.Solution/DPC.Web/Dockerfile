@@ -9,7 +9,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["DPC.Web/DPC.Web.csproj", "DPC.Web/"]
+COPY ["DPC.Solution/DPC.Web/DPC.Web.csproj", "DPC.Web/"]
 RUN dotnet restore "DPC.Web/DPC.Web.csproj"
 COPY . .
 WORKDIR "/src/DPC.Web"
