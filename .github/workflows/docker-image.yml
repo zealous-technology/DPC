@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
     
 env:
-  STEVE_DOCKER_CONTEXT: ./DPC.Solution/DPC.Web
+  DOCKERFILE_PATH: ./DPC.Solution/DPC.Web
 
 jobs:
 
@@ -33,6 +33,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ${{ ENV.STEVE_DOCKER_CONTEXT }}
+        context: ${{ ENV.DOCKERFILE_PATH }}
         push: true
         tags: steveager/dpc:latest
