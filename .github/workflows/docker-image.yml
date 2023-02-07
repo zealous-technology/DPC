@@ -30,8 +30,8 @@ jobs:
     - name: Build
       run: dotnet build $SOLUTION_PATH --no-restore
       
-    #- name: Test
-      #run: dotnet test $SOLUTION_PATH --no-build --verbosity normal
+    - name: Test
+      run: dotnet test $SOLUTION_PATH --no-build --verbosity normal
     
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
