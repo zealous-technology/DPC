@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [ "main" ]
     
-
+env:
+  DOCKER_CONTEXT: ./DPC.Solution/DPC.Web
 
 jobs:
 
@@ -32,6 +33,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ./DPC.Solution/DPC.Web
+        context: ${{ ENV.DOCKER_CONTEXT }}
         push: true
         tags: steveager/dpc:latest
