@@ -2,6 +2,6 @@
 {
     public class GreetingService : IGreetingService
     {
-        public string SayHelloWorld() => "Hello World";
+        public string SayHelloWorld() => "Hello world!";
     }
 }
