@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
     
 env:
-  STEVE_DOCKER_CONTEXT: "./DPC.Solution/DPC.Web"
+  STEVE_DOCKER_CONTEXT: ./DPC.Solution/DPC.Web
 
 jobs:
 
