@@ -13,7 +13,7 @@ env:
 jobs:
 
   sonar:
-    uses: zealous-technology/DPC/.github/workflows/sonarcloud.yml@main
+    uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
     with:
       SOLUTION_PATH: "./DPC.Solution/DPC.Web"
     secrets: inherit
