@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: display_path
-        run: echo ${{ input.SOLUTION_PATH }}
+        run: echo ${{ inputs.SOLUTION_PATH }}
         
