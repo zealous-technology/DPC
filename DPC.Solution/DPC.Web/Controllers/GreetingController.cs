@@ -1,3 +1,4 @@
+using DPC.Web.Models;
 using DPC.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,5 +21,13 @@ namespace DPC.Web.Controllers
 
         [HttpGet]
         public string Get() => _greetingService.SayHelloWorld();
+
+        [HttpPost]
+        public IActionResult AddGreeting([FromBody] Greeting greeting)
+        {
+            _logger.LogInformation($"Adding greeting with message: {greeting.Message}");
+
+            return Created(string.Empty, new { greeting.Message });
+        }
     }
 }
