@@ -12,6 +12,9 @@ env:
 
 jobs:
 
+  sonar:
+    uses: zealous-technology/DPC/.github/workflows/sonarcloud.yml@main
+
   build:
 
     runs-on: ubuntu-latest
@@ -32,10 +35,7 @@ jobs:
       
     - name: Test
       run: dotnet test $SOLUTION_PATH --no-build --verbosity normal
-      
-    - name: SonarCloud
-      uses: zealous-technology/DPC/.github/workflows/sonarcloud.yml@main
-    
+         
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
