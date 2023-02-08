@@ -25,7 +25,7 @@ namespace DPC.Web.Controllers
         [HttpPost]
         public IActionResult AddGreeting([FromBody] Greeting greeting)
         {
-            _logger.LogInformation($"Adding greeting with message: {greeting.Message}");
+            _logger.LogInformation("Adding greeting with message: {Message}", greeting.Message);
 
             return Created(string.Empty, new { greeting.Message });
         }
