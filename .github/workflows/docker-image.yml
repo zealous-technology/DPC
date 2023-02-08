@@ -15,7 +15,7 @@ jobs:
   sonar:
     uses: zealous-technology/DPC/.github/workflows/sonarcloud.yml@main
     with:
-      SOLUTION_PATH: env.SOLUTION_PATH
+      SOLUTION_PATH: ${{ env.SOLUTION_PATH }}
     secrets: inherit
 
   build:
