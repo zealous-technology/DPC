@@ -1,6 +1,10 @@
 name: SonarCloud
 on:
-  workflow_call
+  workflow_call:
+    inputs:
+      SOLUTION_PATH:
+        required: true
+        type: string
 jobs:
   build:
     name: Build and analyze
@@ -29,5 +33,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet-sonarscanner begin /k:"zealous-technology_DPC" /o:"zealous-technology" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build ./DPC.Solution
+          dotnet build ${{ SOLUTION_PATH }}
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
