@@ -12,13 +12,14 @@ env:
 
 jobs:
 
-  sonar:
+  code-analysis:
     uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
     with:
       SOLUTION_PATH: "./DPC.Solution/DPC.Web"
     secrets: inherit
 
   build:
+    needs: code-analysis
 
     runs-on: ubuntu-latest
 
