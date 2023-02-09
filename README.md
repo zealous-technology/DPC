@@ -1,5 +1,5 @@
 # DPC
-A simple .NET 6 Web API with one endpoint: /greeting GET
+A simple .NET 6 Web API with two endpoints: /greeting GET and /greeting POST
 
 CI/CD Pipeline
 --------------
