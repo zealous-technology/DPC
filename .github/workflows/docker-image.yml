@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build Docker Image CI
 
 on:
   push:
@@ -8,14 +8,15 @@ on:
     
 env:
   working-directory: ./DPC.Solution
+  dockerfile-directory: ${{ env.working-directory }}/DPC.Web
 
 jobs:
 
   code-analysis:
     uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
+    secrets: inherit
     with:
       working-directory: "./DPC.Solution"
-    secrets: inherit
 
   build-test-push:
     runs-on: ubuntu-latest
@@ -56,6 +57,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ${{ env.working-directory }}/DPC.Web
+        context: ${{ env.dockerfile-directory }}
         push: true
         tags: steveager/dpc:latest
