@@ -3,22 +3,35 @@ A simple .NET 6 Web API with one endpoint: /greeting GET
 
 CI/CD Pipeline
 --------------
-The pipeline consists of 2 jobs.
+There are 2 workflows.
 
-code-analysis job
------------------
-Integrates with SonarCloud to detect code quality issues and ensure the maintainability, reliability and security of your code
+Build Workflow
+--------------
+The Build workflow is triggered by a pull-request targeting main branch and has 2 jobs.
 
-build docker image job
-----------------------
+[code-analysis job]
+Uses SonarCloud to detect code quality issues and ensure the maintainability, reliability and security of your code
+
+[build-test job]
 1. check out the repository
 2. install .net 6
 3. restore the application dependencies
 4. build
 5. run unit tests
-6. install docker env
-7. log into docker hub (SECRET username and Docker token)
-8. build image and push to docker hub (steveager/dpc)
+
+Push Docker Image
+-----------------
+The Push Docker Image workflow is triggered by a push to main branch and has 1 job.
+
+[push-image]
+1. check out the repository
+2. install .net 6
+3. restore the application dependencies
+4. install docker env
+5. log into docker hub (SECRET username and Docker token)
+6. build image and push to docker hub (steveager/dpc)
+
+We do not want to build and push a new container image on pull-request because the PR could be abandoned!
 
 Image Testing
 -------------
