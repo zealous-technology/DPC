@@ -25,11 +25,9 @@ The Push Docker Image workflow is triggered by a push to main branch and has 1 j
 
 [push-image job]
 1. check out the repository
-2. install .net 6
-3. restore the application dependencies
-4. install docker env
-5. log into docker hub (SECRET username and Docker token)
-6. build image and push to docker hub (steveager/dpc)
+2. install docker env
+3. log into docker hub (SECRET username and Docker token)
+4. build image and push to docker hub (steveager/dpc)
 
 We do not want to build and push a new container image on pull-request because the PR could be abandoned!
 
