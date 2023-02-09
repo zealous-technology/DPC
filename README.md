@@ -23,7 +23,7 @@ Push Docker Image
 -----------------
 The Push Docker Image workflow is triggered by a push to main branch and has 1 job.
 
-[push-image]
+[push-image job]
 1. check out the repository
 2. install .net 6
 3. restore the application dependencies
