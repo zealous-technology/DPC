@@ -3,6 +3,14 @@ A simple .NET 6 Web API with one endpoint: /greeting GET
 
 CI/CD Pipeline
 --------------
+The pipeline consists of 2 jobs.
+
+code-analysis
+----------------
+Integrates with SonarCloud to detect code quality issues and ensure the maintainability, reliability and security of your code
+
+build docker image
+------------------
 1. check out the repository
 2. install .net 6
 3. restore the application dependencies
