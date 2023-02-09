@@ -5,12 +5,12 @@ CI/CD Pipeline
 --------------
 The pipeline consists of 2 jobs.
 
-code-analysis
-----------------
+code-analysis job
+-----------------
 Integrates with SonarCloud to detect code quality issues and ensure the maintainability, reliability and security of your code
 
-build docker image
-------------------
+build docker image job
+----------------------
 1. check out the repository
 2. install .net 6
 3. restore the application dependencies
