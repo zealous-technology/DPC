@@ -28,8 +28,6 @@ namespace DPC.Web.Controllers
             _logger.LogInformation("Adding greeting with message: {Message}", greeting.Message);
 
             return Created(string.Empty, new { greeting.Message });
-
-
         }
     }
 }
