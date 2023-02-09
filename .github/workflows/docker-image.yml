@@ -47,7 +47,7 @@ jobs:
     needs: build-test
     defaults:
       run:
-        working-directory: ${{ env.DOCKERFILE_PATH }}
+        working-directory: ${{ env.working-directory }}
         
     steps:
          
@@ -66,6 +66,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ${{ ENV.DOCKERFILE_PATH }}
+          context: ./DPC.Web
           push: true
           tags: steveager/dpc:latest
