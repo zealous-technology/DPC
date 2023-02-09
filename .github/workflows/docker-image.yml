@@ -8,7 +8,7 @@ on:
     
 env:
   working-directory: ./DPC.Solution
-  dockerfile-directory: ${{ env.working-directory }}/DPC.Web
+  dockerfile-directory: ./DPC.Solution/DPC.Web
 
 jobs:
 
