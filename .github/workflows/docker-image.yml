@@ -11,15 +11,15 @@ env:
 
 jobs:
 
-  #code-analysis:
-  #  uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
-  #  with:
-  #    SOLUTION_PATH: "./DPC.Solution/DPC.Web"
-  #  secrets: inherit
+  code-analysis:
+    uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
+    with:
+      working-directory: "./DPC.Solution"
+    secrets: inherit
 
-  build:
+  build-test-push:
     runs-on: ubuntu-latest
-    # needs: code-analysis
+    needs: code-analysis
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
