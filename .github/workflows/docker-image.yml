@@ -8,7 +8,6 @@ on:
     
 env:
   working-directory: ./DPC.Solution
-  DOCKERFILE_PATH: ./DPC.Solution/DPC.Web
 
 jobs:
 
@@ -57,6 +56,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ${{ env.DOCKERFILE_PATH }}
+        context: ${{ env.working-directory }}/DPC.Web
         push: true
         tags: steveager/dpc:latest
