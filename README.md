@@ -10,7 +10,7 @@ Build Workflow
 The Build workflow is triggered by a pull-request targeting main branch and has 2 jobs.
 
 [code-analysis job]
-Uses SonarCloud to detect code quality issues and ensure the maintainability, reliability and security of your code
+1. Uses SonarCloud to detect code quality issues and ensure the maintainability, reliability and security of your code
 
 [build-test job]
 1. check out the repository
