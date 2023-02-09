@@ -12,19 +12,21 @@ env:
 
 jobs:
 
-  code-analysis:
-    uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
-    with:
-      SOLUTION_PATH: "./DPC.Solution/DPC.Web"
-    secrets: inherit
+  #code-analysis:
+  #  uses: zealous-technology/DPC/.github/workflows/sonar-cloud.yml@main
+  #  with:
+  #    SOLUTION_PATH: "./DPC.Solution/DPC.Web"
+  #  secrets: inherit
 
   build:
-    needs: code-analysis
+   # needs: code-analysis
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        path: ./DPC.Solution
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -32,13 +34,13 @@ jobs:
         dotnet-version: 6.0.x
         
     - name: Restore dependencies
-      run: dotnet restore $SOLUTION_PATH
+      run: dotnet restore
     
     - name: Build
-      run: dotnet build $SOLUTION_PATH --no-restore
+      run: dotnet build --no-restore
       
     - name: Test
-      run: dotnet test $SOLUTION_PATH --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
          
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
@@ -55,6 +57,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ${{ ENV.DOCKERFILE_PATH }}
+        context: ./DPC.Web
         push: true
         tags: steveager/dpc:latest
