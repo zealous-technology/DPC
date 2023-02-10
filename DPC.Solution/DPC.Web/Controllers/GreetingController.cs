@@ -22,6 +22,7 @@ namespace DPC.Web.Controllers
         [HttpGet]
         public string Get() => _greetingService.SayHelloWorld();
 
+        /* NEW FEATURE TO BE IMPLEMENTED
         [HttpPost]
         public IActionResult AddGreeting([FromBody] Greeting greeting)
         {
@@ -29,5 +30,6 @@ namespace DPC.Web.Controllers
 
             return Created(string.Empty, new { greeting.Message });
         }
+        */
     }
 }
