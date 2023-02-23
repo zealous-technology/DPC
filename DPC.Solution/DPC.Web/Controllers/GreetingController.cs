@@ -1,10 +1,12 @@
 using DPC.Web.Models;
 using DPC.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DPC.Web.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class GreetingController : ControllerBase
     {

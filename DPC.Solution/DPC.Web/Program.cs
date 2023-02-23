@@ -1,5 +1,8 @@
 
 using DPC.Web.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace DPC.Web
 {
@@ -10,13 +13,30 @@ namespace DPC.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<IGreetingService, GreetingService>();
 
             builder.Services.AddControllers();
-            builder.Services.AddScoped<IGreetingService, GreetingService>();
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+                };
+            });
+
+
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
