@@ -2,6 +2,7 @@ using DPC.Web.Models;
 using DPC.Web.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace DPC.Web.Controllers
 {
@@ -21,11 +22,17 @@ namespace DPC.Web.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("Backdoor")]
+        [AllowAnonymous]
+        public string Backdoor() => _greetingService.SayHelloWorld();
+
+        [HttpGet()]
+        [Authorize(Roles = "Manager")]
         public string Get() => _greetingService.SayHelloWorld();
 
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult AddGreeting([FromBody] Greeting greeting)
         {
             _logger.LogInformation("Adding greeting with message: {Message}", greeting.Message);
