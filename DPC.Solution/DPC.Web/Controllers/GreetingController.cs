@@ -2,7 +2,6 @@ using DPC.Web.Models;
 using DPC.Web.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace DPC.Web.Controllers
 {
@@ -13,14 +12,21 @@ namespace DPC.Web.Controllers
     {
 
         private readonly IGreetingService _greetingService;
+        private readonly ICustomSettings _customSettings;
         private readonly ILogger<GreetingController> _logger;
 
         public GreetingController(IGreetingService greetingService,
+            ICustomSettings customSettings,
             ILogger<GreetingController> logger)
         {
             _greetingService = greetingService;
+            _customSettings = customSettings;
             _logger = logger;
         }
+
+        [HttpGet("Settings")]
+        [AllowAnonymous]
+        public string Settings() => _customSettings.ToString();
 
         [HttpGet("Backdoor")]
         [AllowAnonymous]

@@ -1,4 +1,5 @@
 
+using DPC.Web.Extensions;
 using DPC.Web.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -30,6 +31,11 @@ namespace DPC.Web
                 };
             });
 
+            builder.Services.AddCustomSettings(settings => 
+            {
+                settings.Name = "Custom";
+                settings.PolicyProvider = "Zealous";
+            });
 
 
             var app = builder.Build();
