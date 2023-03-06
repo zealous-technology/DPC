@@ -1,0 +1,22 @@
+﻿GET http://localhost:3000/greeting
+
+###
+
+GET http://localhost:3000/greeting
+Authorization Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NzcxNzY0MTAsImV4cCI6MTcwODcxMjQxMCwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJyb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.xv8IHzuyxYki516lTkfRIKlP1nt0V_14LMYYI18qsWY
+
+###
+
+GET http://localhost:3000/greeting/backdoor
+
+###
+
+GET http://localhost:3000/greeting/settings
+
+###
+
+POST http://localhost:3000/greeting
+Authorization Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NzcxNzY0MTAsImV4cCI6MTcwODcxMjQxMCwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJyb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.xv8IHzuyxYki516lTkfRIKlP1nt0V_14LMYYI18qsWY
+Content-Type application/json
+
+{ "Message": "Hello Steve" }
