@@ -7,7 +7,6 @@
 
         var token = "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";
         var secret = "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";
-        var secret2 = "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";
         public string SayHelloWorld() => "Hello world!";
     }
 }
