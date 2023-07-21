@@ -3,7 +3,7 @@
     public class Greeting
     {
 
-        string x = "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";
+        string x = "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";
         public string Message { get; set; } = string.Empty;
     }
 }
